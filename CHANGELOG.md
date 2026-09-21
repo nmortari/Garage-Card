@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0
+
+- Replace the single global display-name option with a repeatable visual editor for garage doors.
+- Put an individual Display name field directly beneath every garage-door entity picker.
+- Keep existing `{ entity, name }` YAML configurations compatible.
+- Increase the garage-door control icon slightly for a larger tap target.
+
 ## 0.2.2
 
 - Add a garage-door display-name field to the visual editor.
