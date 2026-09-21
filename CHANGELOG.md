@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.3
+
+- Use one steady 2.4-second pulse cycle for the moving-state indicator.
+- Avoid rebuilding the card for unrelated Home Assistant updates, preventing animation restarts and quick flashes.
+- Correct the placement of the deeper state-color styling introduced in 0.3.2.
+
 ## 0.3.2
 
 - Deepen the state-color wash along the side of each garage-door tile.
