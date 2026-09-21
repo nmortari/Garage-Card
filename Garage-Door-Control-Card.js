@@ -1,4 +1,4 @@
-const VERSION = "0.3.0";
+const VERSION = "0.3.1";
 
 class GarageDoorControlCardEditor extends HTMLElement {
   constructor() {
@@ -52,11 +52,11 @@ class GarageDoorControlCardEditor extends HTMLElement {
   render() {
     if (!this.shadowRoot) return;
     this.shadowRoot.innerHTML = `<style>
-      :host{display:block}*{box-sizing:border-box}.field{display:block;width:100%;margin-bottom:18px}.section-label{margin:8px 0 10px;font-size:14px;font-weight:500}.doors{display:grid;gap:12px}.door-row{padding:14px;border:1px solid var(--divider-color);border-radius:12px;background:var(--card-background-color)}.door-row ha-entity-picker,.door-row ha-textfield{display:block;width:100%}.door-row ha-textfield{margin-top:12px}.row-actions{display:flex;justify-content:flex-end;margin-top:8px}.remove,.add{appearance:none;padding:8px 12px;border:0;border-radius:18px;color:var(--primary-color);background:var(--secondary-background-color);font:inherit;cursor:pointer}.remove{color:var(--error-color)}.add{margin:12px 0 22px}.toggle{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;border-top:1px solid var(--divider-color);font-size:14px}
+      :host{display:block}*{box-sizing:border-box}.field{display:block;width:100%;margin-bottom:18px}.text-field span{display:block;margin:0 0 6px;font-size:12px;color:var(--secondary-text-color)}.text-field input{display:block;width:100%;height:52px;padding:8px 12px;border:1px solid var(--divider-color);border-radius:8px;outline:none;color:var(--primary-text-color);background:var(--input-fill-color,var(--secondary-background-color));font:inherit}.text-field input:focus{border-color:var(--primary-color);box-shadow:0 0 0 1px var(--primary-color)}.section-label{margin:8px 0 10px;font-size:14px;font-weight:500}.doors{display:grid;gap:12px}.door-row{padding:14px;border:1px solid var(--divider-color);border-radius:12px;background:var(--card-background-color)}.door-row ha-entity-picker{display:block;width:100%}.door-row .text-field{margin-top:14px}.row-actions{display:flex;justify-content:flex-end;margin-top:8px}.remove,.add{appearance:none;padding:8px 12px;border:0;border-radius:18px;color:var(--primary-color);background:var(--secondary-background-color);font:inherit;cursor:pointer}.remove{color:var(--error-color)}.add{margin:12px 0 22px}.toggle{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;border-top:1px solid var(--divider-color);font-size:14px}
     </style>
-    <ha-textfield class="field title" label="Card title"></ha-textfield>
+    <label class="field text-field"><span>Card title</span><input class="title" type="text" autocomplete="off"></label>
     <div class="section-label">Garage doors</div>
-    <div class="doors">${this._doors.map((door, index) => `<div class="door-row" data-index="${index}"><ha-entity-picker></ha-entity-picker><ha-textfield class="door-name" label="Display name" placeholder="Use Home Assistant name"></ha-textfield><div class="row-actions"><button class="remove" type="button">Remove</button></div></div>`).join("")}</div>
+    <div class="doors">${this._doors.map((door, index) => `<div class="door-row" data-index="${index}"><ha-entity-picker></ha-entity-picker><label class="text-field"><span>Display name</span><input class="door-name" type="text" placeholder="Use Home Assistant name" autocomplete="off"></label><div class="row-actions"><button class="remove" type="button">Remove</button></div></div>`).join("")}</div>
     <button class="add" type="button">+ Add garage door</button>
     <label class="toggle"><span>Confirm every activation</span><ha-switch class="confirm"></ha-switch></label>
     <label class="toggle"><span>Show when each door last changed</span><ha-switch class="last-changed"></ha-switch></label>`;

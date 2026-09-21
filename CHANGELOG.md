@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.1
+
+- Make the card-title and per-door display-name fields self-contained so they render reliably in every Home Assistant editor context.
+- Preserve one Display name field for every configured garage door.
+
 ## 0.3.0
 
 - Replace the single global display-name option with a repeatable visual editor for garage doors.
