@@ -6,7 +6,7 @@ A responsive Home Assistant dashboard card for one or more garage-door cover ent
 
 - Live open, closed, opening, closing, unavailable, and unknown states
 - A single state-aware garage icon: Open, Close, or Stop
-- Confirmation before opening or closing by default
+- Confirmation before every activation, including Stop, by default
 - Reliable first-tap handling during live Home Assistant state updates
 - Optional last-changed time
 - Multiple garage doors in one card
@@ -52,7 +52,7 @@ The visual editor accepts cover entities directly. Use YAML objects as shown abo
 | --- | --- | --- | --- |
 | `title` | No | `Garage Doors` | Card heading |
 | `entities` | Yes | — | List of cover entity IDs or `{ entity, name }` objects |
-| `confirm_actions` | No | `true` | Confirm Open and Close commands |
+| `confirm_actions` | No | `true` | Confirm every garage-door activation |
 | `show_last_changed` | No | `true` | Show the relative last-changed time |
 
 ## ESPHome compatibility

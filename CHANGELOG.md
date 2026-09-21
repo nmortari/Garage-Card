@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1
+
+- Require confirmation for every garage-door activation, including Stop.
+- Use neutral "Activate garage door?" wording with No and Yes buttons for all states.
+
 ## 0.2.0
 
 - Replace the separate Open, Stop, and Close buttons with the garage-door icon as a single state-aware control.

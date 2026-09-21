@@ -1,4 +1,4 @@
-const VERSION = "0.2.0";
+const VERSION = "0.2.1";
 
 class GarageDoorControlCard extends HTMLElement {
   constructor() {
@@ -114,7 +114,7 @@ class GarageDoorControlCard extends HTMLElement {
   async command(entityId, action) {
     const entity = this._hass?.states?.[entityId];
     if (!entity || ["unknown", "unavailable"].includes(entity.state)) return;
-    if (action !== "stop" && this.config.confirm_actions) {
+    if (this.config.confirm_actions) {
       this.confirming = `${entityId}|${action}`;
       this.render();
       return;
@@ -215,7 +215,7 @@ class GarageDoorControlCard extends HTMLElement {
     <article class="card">
       <header><div class="identity"><div class="hero"><ha-icon icon="mdi:garage-variant"></ha-icon></div><div><h2>${this.escape(this.config.title)}</h2><small>${this.items().length} ${this.items().length === 1 ? "door" : "doors"} connected</small></div></div></header>
       <div class="doors">${this.items().map((item) => this.door(item)).join("")}</div>
-      <dialog class="confirm-dialog"><h3>${this.escape(confirmAction === "open" ? "Open garage door?" : "Close garage door?")}</h3><p>This will ${this.escape(confirmAction)} <b>${this.escape(confirmName)}</b>.</p><div class="dialog-actions"><button data-dialog="cancel">Cancel</button><button class="confirm" data-dialog="confirm">${this.escape(confirmAction === "open" ? "Open" : "Close")}</button></div></dialog>
+      <dialog class="confirm-dialog"><h3>Activate garage door?</h3><p>This will activate <b>${this.escape(confirmName)}</b>.</p><div class="dialog-actions"><button data-dialog="cancel">No</button><button class="confirm" data-dialog="confirm">Yes</button></div></dialog>
       ${this.error ? `<div class="notice"><b>Control error:</b> ${this.escape(this.error)}</div>` : ""}
       ${missing.length ? `<div class="notice"><b>Check entity IDs:</b><br>${missing.map((item) => this.escape(item.entity)).join("<br>")}</div>` : ""}
     </article>`;
