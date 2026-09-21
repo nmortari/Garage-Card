@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.2
+
+- Deepen the state-color wash along the side of each garage-door tile.
+- Increase the state tint and border strength on the garage-door control button.
+- Keep the existing Open, Closed, and moving text colors unchanged.
+
 ## 0.3.1
 
 - Make the card-title and per-door display-name fields self-contained so they render reliably in every Home Assistant editor context.
