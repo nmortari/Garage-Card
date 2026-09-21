@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.4
+
+- Restore the moving-state pulse to a consistent 1.2-second cycle.
+- Strengthen the side state-color wash and garage-icon button tint slightly further.
+- Preserve the redraw protection that prevents irregular quick flashes.
+
 ## 0.3.3
 
 - Use one steady 2.4-second pulse cycle for the moving-state indicator.
