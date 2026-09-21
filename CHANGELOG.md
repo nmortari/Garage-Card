@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.5
+
+- Remove the connected-door count beneath the card title.
+
 ## 0.3.4
 
 - Restore the moving-state pulse to a consistent 1.2-second cycle.
