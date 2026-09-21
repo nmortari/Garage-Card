@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.2
+
+- Add a garage-door display-name field to the visual editor.
+- Support `name` in YAML for overriding a single door's long entity name.
+
 ## 0.2.1
 
 - Require confirmation for every garage-door activation, including Stop.

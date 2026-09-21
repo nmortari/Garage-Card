@@ -1,4 +1,4 @@
-const VERSION = "0.2.1";
+const VERSION = "0.2.2";
 
 class GarageDoorControlCard extends HTMLElement {
   constructor() {
@@ -10,13 +10,14 @@ class GarageDoorControlCard extends HTMLElement {
   }
 
   static getStubConfig() {
-    return { title: "Garage Doors", entities: [] };
+    return { title: "Garage Doors", name: "Garage Door", entities: [] };
   }
 
   static getConfigForm() {
     return {
       schema: [
         { name: "title", selector: { text: {} } },
+        { name: "name", selector: { text: {} } },
         {
           name: "entities",
           required: true,
@@ -27,8 +28,9 @@ class GarageDoorControlCard extends HTMLElement {
       ],
       computeLabel: (schema) => ({
         title: "Card title",
+        name: "Garage door display name",
         entities: "Garage door entities",
-        confirm_actions: "Confirm open and close commands",
+        confirm_actions: "Confirm every activation",
         show_last_changed: "Show when each door last changed",
       })[schema.name],
       computeHelper: (schema) => schema.name === "entities"
@@ -145,7 +147,10 @@ class GarageDoorControlCard extends HTMLElement {
     const entity = this._hass.states[item.entity];
     const effectiveState = this.pending[item.entity] || entity?.state;
     const info = this.stateInfo(effectiveState);
-    const displayName = item.name || entity?.attributes?.friendly_name || item.entity;
+    const displayName = item.name
+      || (this.items().length === 1 ? this.config.name : "")
+      || entity?.attributes?.friendly_name
+      || item.entity;
     const available = Boolean(entity) && !["unknown", "unavailable"].includes(entity.state);
     const state = String(effectiveState || "unavailable").toLowerCase();
     const moving = ["opening", "closing"].includes(state);
