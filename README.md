@@ -5,8 +5,9 @@ A responsive Home Assistant dashboard card for one or more garage-door cover ent
 ## Features
 
 - Live open, closed, opening, closing, unavailable, and unknown states
-- State-aware Open, Stop, and Close controls
+- A single state-aware garage icon: Open, Close, or Stop
 - Confirmation before opening or closing by default
+- Reliable first-tap handling during live Home Assistant state updates
 - Optional last-changed time
 - Multiple garage doors in one card
 - Home Assistant visual editor

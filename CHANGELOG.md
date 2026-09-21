@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+- Replace the separate Open, Stop, and Close buttons with the garage-door icon as a single state-aware control.
+- Keep confirmation for Open and Close commands; Stop remains immediate.
+- Prevent live Home Assistant updates from swallowing pointer clicks.
+- Remove a redundant confirmation-dialog open call.
+
 ## 0.1.0
 
 - Initial release.
